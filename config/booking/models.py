@@ -1,9 +1,9 @@
 from django.contrib.auth.models import User
-from  django.core.validators import  RegexValidator
+from  django.core.validators import RegexValidator
 from django.db import models
 
 class Room(models.Model):
-    name=models.CharField('Название комнаты', max_length=120)
+    name = models.CharField('Название комнаты', max_length=120)
     capacity = models.PositiveIntegerField('Вместимость')
     location = models.TextField('Расроложение', max_length=120)
     description = models.TextField('Краткое описание', blank=True)
@@ -11,8 +11,8 @@ class Room(models.Model):
     is_active = models.BooleanField('Доступность комнаты', default=True)
 
     class Meta:
-        verbouse_name = 'Помещение'
-        verbouse_name_plural = 'Помещения'
+        verbose_name = 'room'
+        verbose_name_plural = 'rooms'
         ordering = ['name']
 
     def __str__(self):
@@ -41,8 +41,8 @@ class BookingRequest(models.Model):
     updated_at = models.DateTimeField('Дата изменения', auto_now=True)
 
     class Meta:
-        verbouse_name = 'Заявка'
-        verbouse_name_plural = 'Заявки'
+        verbose_name = 'Заявка'
+        verbose_name_plural = 'Заявки'
         ordering = ['-created_at']
 
     def __str__(self):
@@ -56,8 +56,8 @@ class Review(models.Model):
     created_at = models.DateTimeField('Дата отзыва', auto_now_add=True)
 
     class Meta:
-        verbouse_name = 'Отзыв'
-        verbouse_name_plural = 'Отзывы'
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
         ordering = ['-created_at']
 
     def __str__(self):
@@ -69,8 +69,8 @@ class UserProfile(models.Model):
     phone = models.CharField('Телефон', max_length=20, validators=[RegexValidator(r'^\+?[0--9\-\s\(\)]{10,20}$', 'Введите корректный номер телефона')])
 
     class Meta:
-        verbouse_name = 'Профиль'
-        verbouse_name_plural = 'Профили'
+        verbose_name = 'Профиль'
+        verbose_name_plural = 'Профили'
 
     def __str__(self):
         return self.full_name

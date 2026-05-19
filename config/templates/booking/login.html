@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'booking/base.html' %}
+{% block title %}Вход{% endblock %}
+{% block content %}
+<section class="form-page">
+  <form method="post" class="form-card">
+    {% csrf_token %}
+    <h1 class="fw-bold mb-3">Вход</h1>
+    {% if form.non_field_errors %}
+      <div class="alert alert-danger">Неверный логин или пароль.</div>
+    {% endif %}
+    {% for field in form %}
+      <div class="mb-3">
+        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+        {{ field }}
+        {% for error in field.errors %}<div class="field-error">{{ error }}</div>{% endfor %}
+      </div>
+    {% endfor %}
+    <button class="btn btn-primary w-100" type="submit">Войти</button>
+    <p class="text-muted mt-3 mb-0">Еще не зарегистрированы? <a href="{% url 'register' %}">Создать аккаунт</a></p>
+  </form>
+</section>
+{% endblock %}

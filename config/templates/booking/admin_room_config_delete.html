@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'booking/base.html' %}
+{% block title %}Удаление помещения{% endblock %}
+{% block content %}
+<section class="form-page">
+  <form method="post" class="form-card">
+    {% csrf_token %}
+    <p class="eyebrow mb-1">Подтверждение</p>
+    <h1 class="fw-bold mb-3">Удалить помещение?</h1>
+    <p>Вы действительно хотите удалить помещение <strong>{{ room.name }}</strong>?</p>
+    <p class="text-muted">Если по этому помещению уже есть заявки, система не удалит его полностью, а просто скроет из бронирования.</p>
+    <button class="btn btn-danger" type="submit">Да, удалить</button>
+    <a class="btn btn-outline-secondary" href="{% url 'admin_room_list' %}">Отмена</a>
+  </form>
+</section>
+{% endblock %}
