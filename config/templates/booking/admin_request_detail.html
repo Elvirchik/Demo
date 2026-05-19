@@ -2,10 +2,10 @@
 {% block title %}Изменение заявки{% endblock %}
 {% block content %}
 <section class="form-page">
-  <form method="post" class="form-card wide">
+  <form method="post" class="form-card wide back-light-grey">
     {% csrf_token %}
-    <p class="eyebrow mb-1">Администратор</p>
-    <h1 class="fw-bold mb-3">Изменение заявки</h1>
+    <p class="eyebrow mb-1 custom-green">Администратор</p>
+    <h1 class="fw-bold mb-3 dark-grey-txt">Изменение заявки</h1>
     <div class="alert alert-light border">
       <p class="mb-1"><b>Мероприятие:</b> {{ booking.event_name }}</p>
       <p class="mb-1"><b>Пользователь:</b> {{ booking.user.username }}</p>
@@ -18,7 +18,7 @@
         {% for error in field.errors %}<div class="field-error">{{ error }}</div>{% endfor %}
       </div>
     {% endfor %}
-    <button class="btn btn-primary" type="submit">Сохранить</button>
+    <button class="btn btn-custom-green" type="submit">Сохранить</button>
     <a class="btn btn-outline-secondary" href="{% url 'admin_panel' %}">Назад</a>
   </form>
 </section>

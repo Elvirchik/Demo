@@ -3,20 +3,20 @@
 {% block content %}
 <section class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
   <div>
-    <p class="eyebrow mb-1">Администратор</p>
-    <h1 class="fw-bold mb-1">Управление помещениями</h1>
+    <p class="eyebrow mb-1 custom-green">Администратор</p>
+    <h1 class="fw-bold mb-1 dark-grey-txt">Управление помещениями</h1>
     <p class="text-muted mb-0">Добавление, редактирование и удаление помещений для бронирования.</p>
   </div>
   <div class="d-flex gap-2 flex-wrap">
     <a class="btn btn-outline-secondary" href="{% url 'admin_panel' %}">К заявкам</a>
-    <a class="btn btn-primary" href="{% url 'admin_room_create' %}">+ Добавить помещение</a>
+    <a class="btn btn-custom-green" href="{% url 'admin_room_create' %}">+ Добавить помещение</a>
   </div>
 </section>
 
 <form method="get" class="filter-card p-3 mb-3">
   <div class="row g-2">
     <div class="col-md-10"><input class="form-control" name="q" placeholder="Поиск по названию, адресу или описанию..." value="{{ query }}"></div>
-    <div class="col-md-2"><button class="btn btn-primary w-100">Найти</button></div>
+    <div class="col-md-2"><button class="btn btn-custom-green w-100">Найти</button></div>
   </div>
 </form>
 
@@ -42,14 +42,14 @@
           <td>{{ room.price_per_hour }} ₽</td>
           <td>
             {% if room.is_active %}
-              <span class="status-badge">Доступно</span>
+              <span class="status-badge custom-green">Доступно</span>
             {% else %}
               <span class="status-badge status-gray">Скрыто</span>
             {% endif %}
           </td>
           <td>
             <div class="d-flex gap-2 flex-wrap">
-              <a class="btn btn-outline-primary btn-sm" href="{% url 'admin_room_edit' room.pk %}">Изменить</a>
+              <a class="btn btn-custom-green btn-sm" href="{% url 'admin_room_edit' room.pk %}">Изменить</a>
               <a class="btn btn-outline-danger btn-sm" href="{% url 'admin_room_delete' room.pk %}">Удалить</a>
             </div>
           </td>

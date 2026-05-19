@@ -2,13 +2,13 @@
 {% block title %}Отзывы{% endblock %}
 {% block content %}
 <section class="mb-4">
-  <h1 class="fw-bold">Отзывы пользователей</h1>
+  <h1 class="fw-bold dark-grey-txt">Отзывы пользователей</h1>
   <p class="text-muted">Отзывы появляются после обработки заявок администратором.</p>
 </section>
 <section class="row g-3">
   {% for review in reviews %}
     <div class="col-md-6 col-lg-4">
-      <article class="simple-card h-100">
+      <article class="simple-card h-100 back-light-grey">
         <h5 class="fw-bold">{{ review.booking.event_name }}</h5>
         <p>{{ review.text }}</p>
         <strong>Оценка: {{ review.rating }}/5</strong>

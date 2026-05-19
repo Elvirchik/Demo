@@ -4,12 +4,12 @@
 <section class="row g-4 align-items-stretch mb-5">
   <div class="col-lg-5">
     <div class="hero-card h-100 d-flex flex-column justify-content-center">
-      <p class="eyebrow mb-2">Бронирование помещений</p>
-      <h1 class="fw-bold mb-3">Выберите зал для конференции или мероприятия</h1>
+      <p class="eyebrow mb-2 custom-green">Бронирование помещений</p>
+      <h1 class="fw-bold mb-3 dark-grey-txt">Выберите зал для конференции или мероприятия</h1>
       <p class="text-muted mb-4">Создайте заявку, отслеживайте статус и оставляйте отзыв после обработки администратором.</p>
       <div>
-        <a class="btn btn-primary" href="{% url 'booking_create' %}">Создать заявку</a>
-        <a class="btn btn-outline-primary ms-2" href="{% url 'reviews' %}">Отзывы</a>
+        <a class="btn btn-custom-green" href="{% url 'booking_create' %}">Создать заявку</a>
+        <a class="btn btn-custom-green ms-2" href="{% url 'reviews' %}">Отзывы</a>
       </div>
     </div>
   </div>
@@ -20,15 +20,15 @@
 
 <section>
   <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-3">
-    <h2 class="fw-bold mb-0">Доступные помещения</h2>
+    <h2 class="fw-bold mb-0 dark-grey-txt">Доступные помещения</h2>
     {% if user.is_staff %}
-      <a class="btn btn-outline-primary btn-sm" href="{% url 'admin_room_create' %}">Добавить помещение</a>
+      <a class="btn btn-custom-green btn-sm" href="{% url 'admin_room_create' %}">Добавить помещение</a>
     {% endif %}
   </div>
   <div class="row g-3">
     {% for room in rooms %}
       <div class="col-md-6 col-lg-4">
-        <article class="simple-card h-100">
+        <article class="simple-card h-100 back-light-grey">
           <h5 class="fw-bold">{{ room.name }}</h5>
           <p class="text-muted mb-2">{{ room.location }}</p>
           <p class="mb-2">Вместимость: {{ room.capacity }} чел.</p>

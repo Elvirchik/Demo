@@ -15,7 +15,7 @@
         {% for error in field.errors %}<div class="field-error">{{ error }}</div>{% endfor %}
       </div>
     {% endfor %}
-    <button class="btn btn-primary w-100" type="submit">Войти</button>
+    <button class="btn btn-custom-green w-100" type="submit">Войти</button>
     <p class="text-muted mt-3 mb-0">Еще не зарегистрированы? <a href="{% url 'register' %}">Создать аккаунт</a></p>
   </form>
 </section>

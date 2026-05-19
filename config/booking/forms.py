@@ -23,7 +23,7 @@ def apply_bootstrap_classes(form):
             widget.attrs.setdefault('class', 'form-control')
 
 
-
+#Форма регистрации
 class RegisterForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -65,7 +65,7 @@ class RegisterForm(UserCreationForm):
             )
         return user
 
-
+#Форма авторизации
 class LoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -75,6 +75,7 @@ class LoginForm(AuthenticationForm):
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput)
 
 
+#Форма составления заявки
 class BookingRequestForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -88,7 +89,7 @@ class BookingRequestForm(forms.ModelForm):
             'preferred_time': forms.TimeInput(attrs={'type': 'time'}),
         }
 
-
+#Форма изменения статуса заявки
 class AdminBookingStatusForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -98,7 +99,7 @@ class AdminBookingStatusForm(forms.ModelForm):
         model = BookingRequest
         fields = ['status', 'admin_comment']
 
-
+#Форма отзыва
 class ReviewForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -113,7 +114,7 @@ class ReviewForm(forms.ModelForm):
         }
 
 
-
+#Форма сотавление комнаты
 class RoomForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

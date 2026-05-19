@@ -2,7 +2,7 @@
 {% block title %}Отзыв{% endblock %}
 {% block content %}
 <section class="form-page">
-  <form method="post" class="form-card">
+  <form method="post" class="form-card back-light-grey">
     {% csrf_token %}
     <h1 class="fw-bold mb-2">Отзыв о заявке</h1>
     <p class="text-muted">{{ booking.event_name }} — {{ booking.room.name }}</p>
@@ -13,7 +13,7 @@
         {% for error in field.errors %}<div class="field-error">{{ error }}</div>{% endfor %}
       </div>
     {% endfor %}
-    <button class="btn btn-primary" type="submit">Сохранить отзыв</button>
+    <button class="btn btn-custom-green" type="submit">Сохранить отзыв</button>
     <a class="btn btn-outline-secondary" href="{% url 'dashboard' %}">Назад</a>
   </form>
 </section>

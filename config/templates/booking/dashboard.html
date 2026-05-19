@@ -3,10 +3,10 @@
 {% block content %}
 <section class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
   <div>
-    <p class="eyebrow mb-1">Личный кабинет</p>
-    <h1 class="fw-bold mb-0">Мои заявки</h1>
+    <p class="eyebrow mb-1 custom-green ">Личный кабинет</p>
+    <h1 class="fw-bold mb-0 dark-grey-txt">Мои заявки</h1>
   </div>
-  <a class="btn btn-primary" href="{% url 'booking_create' %}">Новая заявка</a>
+  <a class="btn btn-custom-green" href="{% url 'booking_create' %}">Новая заявка</a>
 </section>
 
 <div class="mb-4">{% include 'booking/includes/slider.html' %}</div>
@@ -25,7 +25,7 @@
           <td><span class="status-badge">{{ item.get_status_display }}</span></td>
           <td>
             {% if item.status != 'new' and not item.review %}
-              <a class="btn btn-outline-primary btn-sm" href="{% url 'review_create' item.pk %}">Оставить</a>
+              <a class="btn btn-custom-green btn-sm" href="{% url 'review_create' item.pk %}">Оставить</a>
             {% elif item.review %}
               <span class="text-success">Спасибо!</span>
             {% else %}

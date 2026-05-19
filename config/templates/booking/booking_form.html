@@ -2,9 +2,9 @@
 {% block title %}Создание заявки{% endblock %}
 {% block content %}
 <section class="form-page">
-  <form method="post" class="form-card wide">
+  <form method="post" class="form-card wide back-light-grey">
     {% csrf_token %}
-    <p class="eyebrow mb-1">Новая заявка</p>
+    <p class="eyebrow mb-1 custom-green">Новая заявка</p>
     <h1 class="fw-bold mb-3">Создание заявки</h1>
     {% for field in form %}
       <div class="mb-3">
@@ -13,7 +13,7 @@
         {% for error in field.errors %}<div class="field-error">{{ error }}</div>{% endfor %}
       </div>
     {% endfor %}
-    <button class="btn btn-primary" type="submit">Отправить заявку</button>
+    <button class="btn btn-custom-green" type="submit">Отправить заявку</button>
     <a class="btn btn-outline-secondary" href="{% url 'dashboard' %}">Назад</a>
   </form>
 </section>

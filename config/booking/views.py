@@ -16,7 +16,7 @@ def home(request):
     reviews = Review.objects.select_related('user', 'booking')[:3]
     return render(request, 'booking/home.html', {'rooms': rooms, 'reviews': reviews})
 
-
+#Регистрация
 def register_view(request):
     if request.user.is_authenticated:
         return redirect('dashboard')
@@ -64,6 +64,7 @@ def booking_create(request):
     return render(request, 'booking/booking_form.html', {'form': form})
 
 
+#Отзывы
 @login_required
 def review_create(request, pk):
     booking = get_object_or_404(BookingRequest, pk=pk, user=request.user)
@@ -149,6 +150,7 @@ def admin_room_list(request):
     })
 
 
+#Помещения
 @user_passes_test(is_exam_admin)
 def admin_room_create(request):
     form = RoomForm(request.POST or None)

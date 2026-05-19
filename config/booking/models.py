@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from  django.core.validators import RegexValidator
 from django.db import models
 
+#Комнаты
 class Room(models.Model):
     name = models.CharField('Название комнаты', max_length=120)
     capacity = models.PositiveIntegerField('Вместимость')
@@ -18,6 +19,7 @@ class Room(models.Model):
     def __str__(self):
         return f'{self.name} ({self.capacity} мест)'
 
+#Заявка
 class BookingRequest(models.Model):
     class Status(models.TextChoices):
         NEW = 'new', 'Новая'
@@ -48,6 +50,7 @@ class BookingRequest(models.Model):
     def __str__(self):
         return f'{self.event_name} - {self.user.username}'
 
+#Отзыв
 class Review(models.Model):
     booking = models.OneToOneField(BookingRequest, on_delete=models.CASCADE, verbose_name='Заявка')
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
@@ -63,6 +66,7 @@ class Review(models.Model):
     def __str__(self):
         return f'Отзыв {self.user.username} - {self.rating}/5'
 
+#Пользователь
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     full_name = models.CharField('ФИО', max_length=180)

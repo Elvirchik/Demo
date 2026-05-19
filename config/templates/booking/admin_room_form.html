@@ -2,9 +2,9 @@
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
 <section class="form-page">
-  <form method="post" class="form-card wide">
+  <form method="post" class="form-card wide back-light-grey">
     {% csrf_token %}
-    <p class="eyebrow mb-1">Администратор</p>
+    <p class="eyebrow mb-1 custom-green">Администратор</p>
     <h1 class="fw-bold mb-2">{{ title }}</h1>
     <p class="text-muted mb-4">Заполните данные помещения. После сохранения оно появится в списке доступных помещений.</p>
 
@@ -21,7 +21,7 @@
       </div>
     {% endfor %}
 
-    <button class="btn btn-primary" type="submit">{{ button_text }}</button>
+    <button class="btn btn-custom-green" type="submit">{{ button_text }}</button>
     <a class="btn btn-outline-secondary" href="{% url 'admin_room_list' %}">Назад</a>
   </form>
 </section>
